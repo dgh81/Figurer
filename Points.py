@@ -1,5 +1,4 @@
 class Point:
-    #Spørgsmål: Hvilke af disse skal/børe ligge i klassen og hvilke udenfor klassen og hvilken betydning har det?
     def __init__(self, x, y, name, status=None):
         self.x = x
         self.y = y
@@ -29,12 +28,6 @@ class Point:
     
     def set_status(self, status):
         self.status = status
-    
-    # def set_selected(self, status=False):
-    #     self.status = status
-
-    # def is_selected(self):
-    #     return self.status
 
     def move_x(self, distance_x):
         self.x += distance_x
@@ -55,24 +48,24 @@ class Point:
     def __ne__(self, point):
         return (abs(self.x - point.x) != 0 and abs(self.y - point.y) != 0)
 
+def main():
+    p1 = Point(1,2, 'start')
+    p2 = Point(2,3, 'slut')
 
-p1 = Point(1,2, 'start')
-p2 = Point(2,3, 'slut')
+    print("er p1 og p2 ens?: ", p1==p2)
 
-print("er p1 og p2 ens?: ", p1==p2)
+    afstand_p1_til_p2 = Point.dist_to_point(p1, p2)
+    print("afstand mellem p1 og p2: ", afstand_p1_til_p2.get_x(), afstand_p1_til_p2.get_y())
 
-afstand_p1_til_p2 = Point.dist_to_point(p1, p2)
-print("afstand mellem p1 og p2: ", afstand_p1_til_p2.get_x(), afstand_p1_til_p2.get_y())
+    print("Navn: "+p1.get_name()+"("+str(p1.get_x())+", "+str(p1.get_y())+")")
+    print(p1.get_name())
 
-print("Navn: "+p1.get_name()+"("+str(p1.get_x())+", "+str(p1.get_y())+")")
-print(p1.get_name())
+    p1.set_x(3)
+    Point.set_name(p1,'ny_start')
+    print("Navn: "+p1.get_name()+"("+str(p1.get_x())+", "+str(p1.get_y())+")")
 
-p1.set_x(3)
-Point.set_name(p1,'ny_start')
-print("Navn: "+p1.get_name()+"("+str(p1.get_x())+", "+str(p1.get_y())+")")
+    p2.set_name('ny_slut')
+    p2.move_xy(1, -1)
+    print("Navn: "+p2.get_name()+"("+str(p2.get_x())+", "+str(p2.get_y())+")")
 
-p2.set_name('ny_slut')
-p2.move_xy(1, -1)
-print("Navn: "+p2.get_name()+"("+str(p2.get_x())+", "+str(p2.get_y())+")")
-
-print("er p1 og p2 ens?: ", p1==p2)
+    print("er p1 og p2 ens?: ", p1==p2)
