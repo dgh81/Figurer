@@ -365,10 +365,11 @@ def select_shape(shape):
     if poly.collidepoint((mouse_x,mouse_y)):
         if click:
             for s in shapes_list:
-                s.set_status(None)
+                s.set_status("not selected")
                 for p in s.get_points():
                     p.set_status(None)
             shape.set_status("selected")
+            # print(shape.get_status())
             poly = pygame.draw.polygon(WIN, shape.get_color(), shape.getPoints_coordinates(),4)
             
 def move_selected_shape(shape):
@@ -432,69 +433,69 @@ def move_selected_shape(shape):
         move_shape_DOWNLEFT_btn = pygame.draw.rect(WIN, WHITE, [WIDTH-MENUWIDTH+50,380,BUTTONHEIGHT,BUTTONWIDTH]) 
 
     # Btn click:
-    if move_shape_UP_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
+    if move_shape_UP_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
+        print("Vælg en figur først.")
+    elif move_shape_UP_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
         shape_direction_UP = True
         shape.move_y(-10)
     elif click == False:
         shape_direction_UP = False
-    elif move_shape_UP_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
-        print("Vælg en figur først.")
 
-    if move_shape_DOWN_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
+    if move_shape_DOWN_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
+        print("Vælg en figur først.")
+    elif move_shape_DOWN_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
         shape_direction_DOWN = True
         shape.move_y(10)
     elif click == False:
         shape_direction_DOWN = False
-    elif move_shape_DOWN_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
-        print("Vælg en figur først.")
 
-    if move_shape_LEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
+    if move_shape_LEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
+        print("Vælg en figur først.")
+    elif move_shape_LEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
         shape_direction_LEFT = True
         shape.move_x(-10)
     elif click == False:
         shape_direction_LEFT = False
-    elif move_shape_LEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
-        print("Vælg en figur først.")
 
-    if move_shape_RIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
+    if move_shape_RIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
+        print("Vælg en figur først.")
+    elif move_shape_RIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
         shape_direction_RIGHT = True
         shape.move_x(10)
     elif click == False:
         shape_direction_RIGHT = False
-    elif move_shape_RIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
-        print("Vælg en figur først.")
 
-    if move_shape_UPRIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
+    if move_shape_UPRIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
+        print("Vælg en figur først.")
+    elif move_shape_UPRIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
         shape_direction_UPRIGHT = True
         shape.move_xy(10, -10)
     elif click == False:
         shape_direction_UPRIGHT = False
-    elif move_shape_UPRIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
-        print("Vælg en figur først.")
 
-    if move_shape_DOWNRIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
+    if move_shape_DOWNRIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
+        print("Vælg en figur først.")
+    elif move_shape_DOWNRIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
         shape_direction_DOWNRIGHT = True
         shape.move_xy(10, 10)
     elif click == False:
         shape_direction_DOWNRIGHT = False
-    elif move_shape_DOWNRIGHT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
-        print("Vælg en figur først.")
 
-    if move_shape_UPLEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
+    if move_shape_UPLEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
+        print("Vælg en figur først.")
+    elif move_shape_UPLEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
         shape_direction_UPLEFT = True
         shape.move_xy(-10, -10)
     elif click == False:
         shape_direction_UPLEFT = False
-    elif move_shape_UPLEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
-        print("Vælg en figur først.")
 
-    if move_shape_DOWNLEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
+    if move_shape_DOWNLEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
+        print("Vælg en figur først.")
+    elif move_shape_DOWNLEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == "selected":
         shape_direction_DOWNLEFT = True
         shape.move_xy(-10, 10)
     elif click == False:
         shape_direction_DOWNLEFT = False
-    elif move_shape_DOWNLEFT_btn.collidepoint((mouse_x,mouse_y)) and click and shape.get_status() == None:
-        print("Vælg en figur først.")
 
     WIN.blit(pygame.image.load(os.path.join(os.path.dirname(__file__),'img',"UP.png")), [WIDTH-MENUWIDTH+79,319,BUTTONHEIGHT,BUTTONWIDTH])
     WIN.blit(pygame.image.load(os.path.join(os.path.dirname(__file__),'img',"UPLEFT.png")), [WIDTH-MENUWIDTH+49,319,BUTTONHEIGHT,BUTTONWIDTH])
